@@ -20,7 +20,7 @@ The Dockerized API/frontend stack runs cross-platform, but HEC-RAS execution mus
 - Fetch workspace input files from API or shared storage.
 - Execute HEC-RAS with template plan and scenario data.
 - Upload generated outputs back to API storage endpoint.
-- Post status events (`running`, `failed`, `completed`) to API.
+- Post status events (`running`, `failed`, `completed`) to API...
 
 ## Security Notes
 
