@@ -40,17 +40,34 @@ flowchart LR
 - `docs/windows-worker-setup.md`: Windows-specific setup and integration points
 - `docker-compose.yml`: frontend/api/redis/postgis stack
 
-## Quick Start (Linux/Mac with Mock Runner)
+## Quick Start
 
-1. Copy env files:
-   - `cp apps/api/.env.example apps/api/.env`
-   - `cp apps/frontend/.env.local.example apps/frontend/.env.local`
-2. Start infra:
+### Windows PowerShell
+
+1. From the repo root, run:
+   - `.\run.ps1`
+2. Open:
+   - Frontend: `http://localhost:3000`
+   - API docs: `http://localhost:8000/docs`
+
+`run.ps1` copies `apps/api/.env.example` to `apps/api/.env` and `apps/frontend/.env.local.example` to `apps/frontend/.env.local` only if those files are missing, then starts `docker compose up --build`.
+
+By default, the API now requires a real HEC-RAS worker heartbeat file at `/data/worker/hecras-worker.json`. Without that worker registration, jobs fail instead of falling through to the mock runner.
+
+### Manual Start
+
+1. Copy env files if needed:
+   - Windows PowerShell:
+     - `Copy-Item apps/api/.env.example apps/api/.env`
+     - `Copy-Item apps/frontend/.env.local.example apps/frontend/.env.local`
+   - Linux/macOS:
+     - `cp apps/api/.env.example apps/api/.env`
+     - `cp apps/frontend/.env.local.example apps/frontend/.env.local`
+2. Start the stack:
    - `docker compose up --build`
-3. API docs:
-   - `http://localhost:8000/docs`
-4. Frontend:
-   - `http://localhost:3000`
+3. Open:
+   - Frontend: `http://localhost:3000`
+   - API docs: `http://localhost:8000/docs`
 
 ## Windows Worker (Real HEC-RAS)
 

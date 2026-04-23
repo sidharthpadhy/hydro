@@ -38,11 +38,13 @@ export default function HomePage() {
         <UploadCard
           title="Upload DEM (.tif/.tiff)"
           accept=".tif,.tiff"
+          onError={setError}
           onFile={async (file) => setDem(await uploadFile("/api/uploads/dem", file))}
         />
         <UploadCard
           title="Upload Streams (.kml)"
           accept=".kml"
+          onError={setError}
           onFile={async (file) => setStreams(await uploadFile("/api/uploads/streams", file))}
         />
       </div>

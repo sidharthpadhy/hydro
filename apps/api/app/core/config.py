@@ -11,7 +11,9 @@ class Settings(BaseSettings):
     storage_root: str = "/tmp/hydro/storage"
     workspace_root: str = "/tmp/hydro/workspaces"
     max_upload_mb: int = 100
-    use_mock_ras: bool = True
+    use_mock_ras: bool = False
+    worker_heartbeat_path: str = "/data/worker/hecras-worker.json"
+    worker_heartbeat_max_age_seconds: int = 120
 
 
 settings = Settings()
